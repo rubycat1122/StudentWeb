@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/student/insert")
 public class StudentInserServlet extends HttpServlet {
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Student> sList = new ArrayList<Student>();
 		sList.add(new Student("일용자", 99, 88));
 		sList.add(new Student("이용자", 88, 77));
@@ -41,3 +41,4 @@ public class StudentInserServlet extends HttpServlet {
 		// 페이지 생성 + 변수에 넣은 값을 출력 -> JSP로 가능
 	}
 }
+

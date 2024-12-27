@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h3>학생 정보 등록</h3>
-	<form action="/student/register" method="get">
+	<form action="/student/register" method="post">
 		이름<input type="text" name="name"><br>
 		1차 점수<input type="text" name="firstScore"><br>
 		2차 점수<input type="text" name="secondScore"><br>

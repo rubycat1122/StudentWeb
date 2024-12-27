@@ -15,10 +15,16 @@ import jakarta.servlet.http.HttpServletResponse;
  * url : /student/remove
  * ?name=일용자
  */
+/*
+ * service 메소드의 경우
+ * - doGet, doPost 모두 가능했었음
+ * - doGet, doPost 메소드로 구분하려고 함.
+ * 데이터 보안 등에 더 신경쓸 때 둘로 나누어 관리
+ */
 @WebServlet("/student/remove")
 public class StudentRemoveServlet extends HttpServlet {
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Student> sList = new ArrayList<Student>();
 		sList.add(new Student("일용자", 99, 88));
 		sList.add(new Student("이용자", 88, 77));

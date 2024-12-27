@@ -17,10 +17,22 @@ import jakarta.servlet.http.HttpServletResponse;
  * url : /student/register
  * ?name=삼용자&firstScore=88&secondScore=77
  */
+/*
+ * 학생의 정보(이름, 1차점수, 2차점수)를 저장하기 위해서 변수 3개가 사용됨
+ 이런 경우 url이 길어지게 됨
+ get 방식 url은 글자수 제한이 있음 그리고 너무 길어지면 보기가 복잡함
+ 보통 넘겨주는게 많으면 post 처리함(주로 등록)
+ 그리고 쿼리스트링에 값이 보이면 곤란한 것들은 1차적으로 안보이게 하기 위해서 post방식을 사용함(로그인)
+ */
+ 
+
 @WebServlet("/student/register")
 public class StudentRegisterServlet extends HttpServlet {
+	
+	// 학생 정보 등록의 경우 post 방식으로 요청해야 함.
+	// post 방식 요청은 form 태그를 통해서만 가능하므로 form 작성 필요
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Student> sList = new ArrayList<Student>(); // StudentListServlet클래스에 있는 배열이랑 호환되지 않는다. 그냥 새로 만든것
 		String name = request.getParameter("name");
 		int firstScore, secondScore;
